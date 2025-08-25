@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  redis:
+    image: redis:7
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - ./data/mongo:/data/db
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    restart: unless-stopped
+    volumes:
+      - ./data/qdrant:/qdrant/storage
+
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+
+  api:
+    build: ./api
+    env_file: .env
+    depends_on:
+      - mongo
+      - redis
+      - qdrant
+      - ollama
+    ports:
+      - "8000:8000"
+
+  worker:
+    build: ./workers
+    env_file: .env
+    depends_on:
+      - api
+      - mongo
+      - redis
+      - qdrant
+
+volumes:
+  ollama: {}

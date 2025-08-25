@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pymongo
+qdrant-client
+requests
+sentence-transformers
+PyJWT
+passlib[bcrypt]
