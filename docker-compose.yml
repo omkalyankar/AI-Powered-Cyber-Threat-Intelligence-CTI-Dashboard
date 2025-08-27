@@ -11,10 +11,11 @@ services:
       - ./data/mongo:/data/db
 
   qdrant:
-    image: qdrant/qdrant:latest
-    restart: unless-stopped
+    image: qdrant/qdrant:v1.9.0
+    ports: 
+    - "6333:6333"
     volumes:
-      - ./data/qdrant:/qdrant/storage
+      - ./qdrant_storage:/qdrant/storage
 
   ollama:
     image: ollama/ollama:latest
@@ -26,14 +27,15 @@ services:
 
   api:
     build: ./api
-    env_file: .env
+    ports:
+    - "8000:8000"
+    volumes:
+    - ./api:/api
     depends_on:
       - mongo
       - redis
       - qdrant
       - ollama
-    ports:
-      - "8000:8000"
 
   worker:
     build: ./workers

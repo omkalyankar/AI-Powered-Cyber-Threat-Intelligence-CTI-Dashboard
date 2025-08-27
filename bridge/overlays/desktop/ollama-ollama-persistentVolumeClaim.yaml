@@ -1,0 +1,9 @@
+#! ollama-ollama-persistentVolumeClaim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: ollama-ollama
+    namespace: cti-dashboard
+spec:
+    storageClassName: "hostpath" # see docker/desktop-storage-provisioner

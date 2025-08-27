@@ -1,0 +1,9 @@
+#! qdrant-C:\Users\hp\OmKalyankar\cti-dashboard\qdrant_storage-persistentVolumeClaim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: qdrant-c--users-hp-omkalyankar-cti-dashboard-qdrant-storage
+    namespace: cti-dashboard
+spec:
+    storageClassName: "hostpath" # see docker/desktop-storage-provisioner

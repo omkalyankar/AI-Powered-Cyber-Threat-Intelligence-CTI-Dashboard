@@ -1,0 +1,18 @@
+#! qdrant-C:\Users\hp\OmKalyankar\cti-dashboard\qdrant_storage-persistentVolumeClaim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: qdrant-c--users-hp-omkalyankar-cti-dashboard-qdrant-storage
+    namespace: cti-dashboard
+    labels:
+        com.docker.compose.service: qdrant
+        com.docker.compose.volume: C:\Users\hp\OmKalyankar\cti-dashboard\qdrant_storage
+spec:
+    accessModes:
+        # TODO would need to check which services use this volume
+        - ReadWriteOnce
+    volumeMode: Filesystem
+    resources:
+        requests:
+            storage: 100Mi

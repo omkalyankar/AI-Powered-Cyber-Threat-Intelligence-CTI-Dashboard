@@ -1,0 +1,13 @@
+#! kustomization.yaml
+# Generated code, do not edit
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - ../../base
+patches:
+    - path: api-service.yaml
+    - path: mongo-C:\Users\hp\OmKalyankar\cti-dashboard\data\mongo-persistentVolumeClaim.yaml
+    - path: ollama-ollama-persistentVolumeClaim.yaml
+    - path: ollama-service.yaml
+    - path: qdrant-C:\Users\hp\OmKalyankar\cti-dashboard\qdrant_storage-persistentVolumeClaim.yaml
+    - path: qdrant-service.yaml

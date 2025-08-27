@@ -1,0 +1,24 @@
+#! kustomization.yaml
+# Generated code, do not edit
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - 0-cti-dashboard-namespace.yaml
+    - api-deployment.yaml
+    - api-expose.yaml
+    - api-service.yaml
+    - default-network-policy.yaml
+    - mongo-C:\Users\hp\OmKalyankar\cti-dashboard\data\mongo-persistentVolumeClaim.yaml
+    - mongo-deployment.yaml
+    - mongo-expose.yaml
+    - ollama-deployment.yaml
+    - ollama-expose.yaml
+    - ollama-ollama-persistentVolumeClaim.yaml
+    - ollama-service.yaml
+    - qdrant-C:\Users\hp\OmKalyankar\cti-dashboard\qdrant_storage-persistentVolumeClaim.yaml
+    - qdrant-deployment.yaml
+    - qdrant-expose.yaml
+    - qdrant-service.yaml
+    - redis-deployment.yaml
+    - redis-expose.yaml
+    - worker-deployment.yaml

@@ -1,0 +1,51 @@
+#! api-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api
+    namespace: cti-dashboard
+    labels:
+        com.docker.compose.project: cti-dashboard
+        com.docker.compose.service: api
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: cti-dashboard
+            com.docker.compose.service: api
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: cti-dashboard
+                com.docker.compose.service: api
+                com.docker.compose.network.default: "true"
+        spec:
+            containers:
+                - name: api
+                  image: cti-dashboard-api
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: ADMIN_EMAIL
+                      value: "admin@example.org"
+                    - name: ADMIN_PASSWORD
+                      value: "Strong!Passw0rd"
+                    - name: EMBED_MODEL
+                      value: "sentence-transformers/all-MiniLM-L6-v2"
+                    - name: JWT_SECRET
+                      value: "change-me"
+                    - name: MONGO_DB
+                      value: "cti"
+                    - name: MONGO_URI
+                      value: "mongodb://mongo:27017"
+                    - name: OLLAMA_URL
+                      value: "http://ollama:11434"
+                    - name: QDRANT_URL
+                      value: "http://qdrant:6333"
+                    - name: RATE_LIMIT_PER_MIN
+                      value: "60"
+                  ports:
+                    - name: api-8000
+                      containerPort: 8000
